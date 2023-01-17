@@ -1,0 +1,32 @@
+dataset: path
+data_folder: crop_identification
+image_size: 32
+batch_size: 256
+num_workers: 8
+
+model: supcon
+model_args:
+    encoder: resnet50
+    load_pt_encoder: False
+load: save/supcon_models/model_supcon_load_pt_encoder_True_optimizer_adam_bs_256_scheduler_exp/ckpt_epoch_300.pth
+classifier_args:
+    encoder: resnet50
+    num_classes: 17
+
+epochs: 50
+# optimizer: sgd
+# optimizer_args:
+#     lr: 0.05
+#     momentum: 0.9
+#     weight_decay: 0.0001
+optimizer: adam
+optimizer_args:
+#     lr: 0.001
+
+scheduler: exp
+
+print_freq: 1
+save_freq: 10
+
+
+
